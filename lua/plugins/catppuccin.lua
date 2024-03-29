@@ -5,7 +5,17 @@ return {
     name = "catppuccin",
     priority = 1000,
     config = function()
-      vim.cmd.colorscheme "catppuccin"
+      require("catppuccin").setup({
+        background = {
+          dark = "mocha"
+        },
+        transparent_background = true,
+        integrations = {
+          neotree = true,
+          treesitter = true,
+          notify = true
+        }
+      })
     end
   }
 }

@@ -17,3 +17,7 @@ require("vim-options")
 require("lazy").setup("plugins")
 
 vim.o.shell="bash.exe"
+vim.cmd.colorscheme "catppuccin"
+
+
+

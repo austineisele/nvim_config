@@ -29,7 +29,7 @@ return {
       --Omnisharp set up
       local pid = vim.fn.getpid()
       local omnisharp_bin =
-      "C:\\Users\\aeisele\\AppData\\Local\\nvim-data\\mason\\packages\\omnisharp\\omnisharp.cmd"
+      "C:\\Users\\aeisele\\AppData\\Local\\nvim-data\\mason\\packages\\omnisharp-mono\\omnisharp.exe"
       lspconfig.omnisharp.setup({
         cmd = { omnisharp_bin, "--languageserver", "--hostPID", tostring(pid) },
         enable_editorconfig_support = true,
@@ -42,11 +42,9 @@ return {
         }
       })
 
-      --keybindinga
-      local bufopts = { noremap = true, silent = true, buffer = bufnr }
-      vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
-      vim.keymap.set("n", "gd", vim.lsp.buf.definition, {})
-      vim.keymap.set("n", "gD", vim.lsp.buf.declaration, bufopts)
+      --keybindingavim.keymap.set("n", "K", vim.lsp.buf.hover, {})
+      vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, {})
+      vim.keymap.set("n", "<leader>gr", vim.lsp.buf.references, {})
       vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, {})
     end,
   },
