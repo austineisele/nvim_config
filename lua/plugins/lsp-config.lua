@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 --prelims
 local util = require("lspconfig/util")
 
@@ -142,6 +143,8 @@ local function lsp_config(capabilities)
 	vim.lsp.inlay_hint.enable = true
 end
 
+=======
+>>>>>>> 0d6bd4b (adding rust lsp)
 return {
 	{
 		"williamboman/mason.nvim",
@@ -151,10 +154,13 @@ return {
 				PATH = "prepend",
 			})
 		end,
+<<<<<<< HEAD
 		registries = {
 			"github:mason-org/mason-registry",
 			"github:crashdummyy/mason-registry",
 		},
+=======
+>>>>>>> 0d6bd4b (adding rust lsp)
 	},
 	{
 		"williamboman/mason-lspconfig.nvim",
@@ -166,7 +172,51 @@ return {
 	{
 		"neovim/nvim-lspconfig",
 		lazy = false,
+<<<<<<< HEAD
 		event = { "BufReadPre", "BufNewFile" },
 		config = lsp_config,
+=======
+		config = function()
+			local capabilities = require("cmp_nvim_lsp").default_capabilities()
+			local lspconfig = require("lspconfig")
+			--lua lsp set up
+			lspconfig.lua_ls.setup({
+				capabilities = capabilities,
+			})
+
+			lspconfig.rust_analyzer.setup({
+				settings = {
+					["rust-analyzer"] = {
+						diagnostics = {
+							enable = false,
+						},
+					},
+				},
+			})
+
+			--Omnisharp set up
+			local pid = vim.fn.getpid()
+			local omnisharp_bin =
+				"C:\\Users\\aeisele\\AppData\\Local\\nvim-data\\mason\\packages\\omnisharp\\omnisharp.cmd"
+			lspconfig.omnisharp.setup({
+				cmd = { omnisharp_bin, "--languageserver", "--hostPID", tostring(pid) },
+				enable_editorconfig_support = true,
+				enable_ms_build_load_projects_on_demand = false,
+				enable_rosyln_analzyers = true,
+				root_dir = lspconfig.util.root_pattern("*.csproj", "*.sln"),
+				capabilities = capabilities,
+				handlers = {
+					["textDocument/definition"] = require("omnisharp_extended").handler,
+				},
+			})
+
+			--keybindinga
+			local bufopts = { noremap = true, silent = true, buffer = bufnr }
+			vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
+			vim.keymap.set("n", "gd", vim.lsp.buf.definition, {})
+			vim.keymap.set("n", "gD", vim.lsp.buf.declaration, bufopts)
+			vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, {})
+		end,
+>>>>>>> 0d6bd4b (adding rust lsp)
 	},
 }

@@ -2,9 +2,12 @@ return {
 	{
     "akinsho/nvim-toggleterm.lua",
 		cmd = { "TermExec", "ToggleTerm" },
+<<<<<<< HEAD
     keys = {
       {"<leader>t", "<cmd>ToggleTerm<CR>"}
     },
+=======
+>>>>>>> 0d6bd4b (adding rust lsp)
 		config = function()
 			require("toggleterm").setup({
 				-- size can be a number or function which is passed the current terminal
@@ -25,7 +28,11 @@ return {
 				-- direction = 'vertical' | 'horizontal' | 'window' | 'float',
 				direction = "horizontal",
 				close_on_exit = true, -- close the terminal window when the process exits
+<<<<<<< HEAD
 				shell = bash, -- change the default shell
+=======
+				shell = zsh, -- change the default shell
+>>>>>>> 0d6bd4b (adding rust lsp)
 				-- This field is only relevant if direction is set to 'float'
 				float_opts = {
 					-- The border key is *almost* the same as 'nvim_open_win'

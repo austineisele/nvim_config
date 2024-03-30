@@ -5,6 +5,7 @@ return {
     name = "catppuccin",
     priority = 1000,
     config = function()
+<<<<<<< HEAD
       require("catppuccin").setup({
         background = {
           dark = "mocha"
@@ -16,6 +17,9 @@ return {
           notify = true
         }
       })
+=======
+      vim.cmd.colorscheme "catppuccin"
+>>>>>>> 0d6bd4b (adding rust lsp)
     end
   }
 }

@@ -16,6 +16,7 @@ vim.opt.rtp:prepend(lazypath)
 require("vim-options")
 require("lazy").setup("plugins")
 
+<<<<<<< HEAD
 vim.cmd.colorscheme("catppuccin")
 
 local getOs = require("lua.utils.getOs")
@@ -31,3 +32,5 @@ if getOs.getName() == "Windows" then
 else
 	vim.g.terminal_emulator = "bash"
 end
+=======
+>>>>>>> 0d6bd4b (adding rust lsp)

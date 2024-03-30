@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 --for code completions
 
+=======
+>>>>>>> 0d6bd4b (adding rust lsp)
 return {
   {
     "hrsh7th/cmp-nvim-lsp"
@@ -9,11 +12,15 @@ return {
       dependencies = {
     "saadparwaiz1/cmp_luasnip",
     "rafamadriz/friendly-snippets",
+<<<<<<< HEAD
 
+=======
+>>>>>>> 0d6bd4b (adding rust lsp)
     },
   },
   {
     "hrsh7th/nvim-cmp",
+<<<<<<< HEAD
     dependencies = {
       "neovim/nvim-lspconfig",
       "hrsh7th/cmp-nvim-lsp",
@@ -23,6 +30,8 @@ return {
       "hrsh7th/cmp-vsnip",
       "hrsh7th/vim-vsnip",
     },
+=======
+>>>>>>> 0d6bd4b (adding rust lsp)
     config = function()
     local cmp = require("cmp")
     require("luasnip.loaders.from_vscode").lazy_load()
