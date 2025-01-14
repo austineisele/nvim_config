@@ -24,6 +24,23 @@ return {
 			dapui.close()
 		end
 
+    dap.adapters.coreclr = {
+      type = 'executable',
+      command = 'C:\\Users\\aeisele\\netcoredbg\\build\\src\\Debug',
+      args = {'--interpreter=vscode'}
+    }
+
+    dap.configurations.cs = {
+       {
+         type = "coreclr",
+         name = "launch - netcoredbg",
+         request = "launch",
+         program = function()
+          return vim.fn.input('Path to dll', vim.fn.getcwd() .. '\\bin\\Debug', 'file')
+        end,
+      },
+    }
+
 		vim.keymap.set("n", "<Leader>dt", ":DapToggleBreakpoint<CR>")
 		vim.keymap.set("n", "<F5>", ":DapContinue<CR>")
 		vim.keymap.set("n", "<Leader>dx", ":DapTerminate<CR>")
