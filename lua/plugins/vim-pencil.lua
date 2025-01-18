@@ -1,6 +1,8 @@
 return {
-  "preservim/vim-pencil",
-  init = function ()
-   vim.g["pencil#wrapModeDefault"] = "soft"
-  end
-}
+		"preservim/vim-pencil",
+		ft = { "markdown", "text" },
+		config = function()
+			vim.fn["pencil#init"]({ wrap = "soft", spell = 0 })
+		end,
+	}
+
