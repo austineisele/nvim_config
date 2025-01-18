@@ -20,4 +20,7 @@ return {
 		"adamclerk/vim-razor", -- razor syntax highlighting
 		ft = "razor",
 	},
+  {
+    "OrangeT/vim-csharp"
+  },
 }
