@@ -3,10 +3,10 @@ return {
 	dependencies = {
 		"leoluz/nvim-dap-go",
 		"rcarriga/nvim-dap-ui",
-    "nvim-neotest/nvim-nio"
+		"nvim-neotest/nvim-nio",
 	},
 	config = function()
-    require("dapui").setup()
+		require("dapui").setup()
 		require("dap-go").setup()
 
 		local dap, dapui = require("dap"), require("dapui")
@@ -24,24 +24,33 @@ return {
 			dapui.close()
 		end
 
-    dap.adapters.coreclr = {
-      type = 'executable',
-      command = 'C:\\Users\\aeisele\\netcoredbg\\build\\src\\Debug',
-      args = {'--interpreter=vscode'}
-    }
+		dap.adapters.coreclr = {
+			type = "executable",
+			command = "C:\\Users\\aeisele\\netcoredbg\\build\\src\\Debug",
+			args = { "--interpreter=vscode" },
+		}
 
-    dap.configurations.cs = {
-       {
-         type = "coreclr",
-         name = "launch - netcoredbg",
-         request = "launch",
-         program = function()
-          return vim.fn.input('Path to dll', vim.fn.getcwd() .. '\\bin\\Debug', 'file')
-        end,
-      },
-    }
+		dap.configurations.go = {
+			{
+				type = "go",
+				name = "Debug",
+				request = "launch",
+				program = "${fileDirname}",
+			},
+		}
 
-		vim.keymap.set("n", "<Leader>dt", ":DapToggleBreakpoint<CR>")
+		dap.configurations.cs = {
+			{
+				type = "coreclr",
+				name = "launch - netcoredbg",
+				request = "launch",
+				program = function()
+					return vim.fn.input("Path to dll", vim.fn.getcwd() .. "\\bin\\Debug", "file")
+				end,
+			},
+		}
+
+		vim.keymap.set("n", "<Leader>bp", ":DapToggleBreakpoint<CR>")
 		vim.keymap.set("n", "<F5>", ":DapContinue<CR>")
 		vim.keymap.set("n", "<Leader>dx", ":DapTerminate<CR>")
 		vim.keymap.set("n", "<F10>", ":DapStepOver<CR>")
