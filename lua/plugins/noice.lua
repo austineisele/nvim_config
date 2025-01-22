@@ -1,19 +1,11 @@
 return {
   {
-<<<<<<< HEAD
-   "folke/noice.nvim", 
-=======
     "folke/noice.nvim",
->>>>>>> 0d6bd4b (adding rust lsp)
     dependencies = {
       "MunifTanjim/nui.nvim",
       "rcarriga/nvim-notify",
     },
-<<<<<<< HEAD
-  config = function()
-=======
     config = function()
->>>>>>> 0d6bd4b (adding rust lsp)
       require("noice").setup({
         -- add any options here
         routes = {
@@ -35,19 +27,10 @@ return {
     end,
   },
   "rcarriga/nvim-notify",
-<<<<<<< HEAD
     config = function()
       require("notify").setup({
         background_colour = "#000001",
         enabled = true,
       })
     end
-=======
-  config = function()
-    require("notify").setup({
-      background_colour = "#000000",
-      enabled = false,
-    })
-  end
->>>>>>> 0d6bd4b (adding rust lsp)
 }

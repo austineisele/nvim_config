@@ -4,11 +4,7 @@ return {
 	config = function()
 		require("lualine").setup({
 			options = {
-<<<<<<< HEAD
 				theme = "catppuccin"
-=======
-				theme = "tokyonight"
->>>>>>> 0d6bd4b (adding rust lsp)
 			},
 		})
 	end,
