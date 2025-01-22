@@ -29,5 +29,5 @@ if getOs.getName() == "Windows" then
     vim.api.nvim_command("autocmd VimEnter * let &shellcmdflag = '-c'")
     vim.api.nvim_command("autocmd VimEnter * let &shell='\"C:/Program Files/Git/bin/bash.exe\"'")
 else
-	vim.g.terminal_emulator = "zsh"
+	vim.g.terminal_emulator = "bash"
 end
