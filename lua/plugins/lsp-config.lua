@@ -3,16 +3,16 @@ local util = require("lspconfig/util")
 
 --on attach specifically for rzls
 local on_attach = function(client, bufnr)
-  -- Create a command `:Format` local to the LSP buffer
-  -- https://github.com/tris203/.dotfiles/blob/01f0bb1b5ebf950a61c69012c3c94dbc8cfb98f0/nvim/lua/lspattach.lua
-  vim.api.nvim_buf_create_user_command(bufnr, "Format", function(_)
-    vim.lsp.buf.format()
-  end, { desc = "Format current buffer with LSP" })
+	-- Create a command `:Format` local to the LSP buffer
+	-- https://github.com/tris203/.dotfiles/blob/01f0bb1b5ebf950a61c69012c3c94dbc8cfb98f0/nvim/lua/lspattach.lua
+	vim.api.nvim_buf_create_user_command(bufnr, "Format", function(_)
+		vim.lsp.buf.format()
+	end, { desc = "Format current buffer with LSP" })
 
-  if client:supports_method("textDocument/foldingRange") then
-    vim.o.foldmethod = "expr"
-    vim.o.foldexpr = "v:lua.vim.lsp.foldexpr()"
-  end
+	if client:supports_method("textDocument/foldingRange") then
+		vim.o.foldmethod = "expr"
+		vim.o.foldexpr = "v:lua.vim.lsp.foldexpr()"
+	end
 end
 
 --create the local functions that are doing the setup
@@ -35,7 +35,7 @@ local function rzls_setup(capabilities)
 	return {
 		config = {
 			capabilities = capabilities,
-      on_attach = on_attach,
+			on_attach = on_attach,
 		},
 	}
 end
@@ -134,7 +134,17 @@ local function lsp_config(capabilities)
 		},
 		single_file_support = true,
 	})
-
+	require("lspconfig").yamlls.setup({
+		on_attach = on_attach,
+		capabilities = capabilities,
+		settings = {
+			yaml = {
+				schemas = {
+					["https://raw.githubusercontent.com/OAI/OpenAPI-Specification/main/schemas/v3.0/schema.yaml"] = "/*",
+				},
+			},
+		},
+	})
 	vim.keymap.set("n", "K", vim.lsp.buf.hover, {}) --hover over to see definition
 	vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, {})
 	vim.keymap.set("n", "<leader>gr", vim.lsp.buf.references, {})
@@ -170,4 +180,3 @@ return {
 		config = lsp_config,
 	},
 }
-
