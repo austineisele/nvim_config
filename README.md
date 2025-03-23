@@ -36,4 +36,8 @@ Plugin for menus
 - Leader then "dx" in normal mode stops a debugging session
 - <F10> steps over
 
+### Harpoon
+- Leader "a" - Add a file to Harpoon
+- Leader "h" - Toggle the Harpoon Menu
+- Leader 1 through 5 - Move to a certain file
 
