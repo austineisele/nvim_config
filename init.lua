@@ -24,3 +24,14 @@ vim.opt.shell = "bash"
 vim.opt.shellxquote = '""'
 vim.api.nvim_command("autocmd VimEnter * let &shellcmdflag = '-c'")
 vim.api.nvim_command("autocmd VimEnter * let &shell='\"C:/Program Files/Git/bin/bash.exe\"'")
+
+-- zoom function
+
+if vim.g.vscode then
+  local function map(mode, lhs, cmd)
+    vim.keymap.set(mode, lhs, function()
+      vim.fn.VSCodeNotify(cmd)
+    end, { silent = true, noremap = true })
+  end
+
+end
