@@ -35,3 +35,4 @@ if vim.g.vscode then
   end
 
 end
+vim.g.terminal_emulator = "zsh"

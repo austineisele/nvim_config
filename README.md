@@ -69,6 +69,7 @@ Plugin for menus
 
 ### Terminal
 - `<CR-/>` Toggles Terminal
+- Leader then 't' in normal mode toggles a horizontal terminal on the bottom of the window
  
 ### Debugging
 - Leader then "bp" in normal mode to toogle a breakpoint

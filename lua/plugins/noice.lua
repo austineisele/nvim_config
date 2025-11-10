@@ -1,11 +1,11 @@
 return {
   {
-   "folke/noice.nvim", 
+    "folke/noice.nvim",
     dependencies = {
       "MunifTanjim/nui.nvim",
       "rcarriga/nvim-notify",
     },
-  config = function()
+    config = function()
       require("noice").setup({
         -- add any options here
         routes = {
