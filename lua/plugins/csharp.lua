@@ -15,11 +15,6 @@ return {
 		},
 		config = true,
 	},
-	--syntax highlighting for razor
-	{
-		"adamclerk/vim-razor", -- razor syntax highlighting
-		ft = "razor",
-	},
   {
     "OrangeT/vim-csharp"
   },
