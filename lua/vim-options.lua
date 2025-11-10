@@ -1,5 +1,5 @@
 vim.o.relativenumber = true
-vim.o.expandtab = true
+vim.o.expandtab = false
 vim.opt.tabstop = 2
 vim.o.softtabstop = 2
 vim.o.shiftwidth = 2

@@ -7,10 +7,10 @@ if not vim.loop.fs_stat(lazypath) then
     "clone",
     "--filter=blob:none",
     "https://github.com/folke/lazy.nvim.git",
-    "--branch=stable",
-    lazypath })
+    "--branch=stable", lazypath })
 end
 vim.opt.rtp:prepend(lazypath)
+vim.opt.shadafile = vim.fn.stdpath("data") .. "/shada/main.shada"
 
 --plugin manager
 require("vim-options")
@@ -23,7 +23,7 @@ vim.opt.shellslash = true
 vim.opt.shell = "bash"
 vim.opt.shellxquote = '""'
 vim.api.nvim_command("autocmd VimEnter * let &shellcmdflag = '-c'")
-vim.api.nvim_command("autocmd VimEnter * let &shell='\"C:/Program Files/Git/bin/bash.exe\"'")
+vim.api.nvim_command("autocmd VimEnter * let &shell='\"C:/Users/aeisele/AppData/Local/Programs/Git/bin/bash.exe\"'")
 
 -- zoom function
 
